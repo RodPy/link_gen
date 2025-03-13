@@ -8,7 +8,7 @@ Este proyecto es una herramienta de escritorio construida con Python y Tkinter q
 
 Si prefieres no instalar Python, puedes descargar la versión compilada de la herramienta como un archivo ejecutable para Windows:
 
-- [Descargar link_gen.exe](https://github.com/RodPy/link_gen/blob/main/dist/UI.exe)
+- [Descargar link_gen.exe]([https://github.com/RodPy/link_gen/blob/main/dist/UI.exe](https://drive.google.com/file/d/1c2AEJzHEjxlfG2dMmza6TZwL4YW1s4bp/view?usp=sharing))
 
 
 ## Requisitos
