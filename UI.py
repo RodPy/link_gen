@@ -5,9 +5,9 @@ from urllib.parse import quote
 from datetime import datetime
 import webbrowser
 from PIL import Image, ImageTk
+import sys
 import os
 
-# Función para abrir el proyecto en GitHub
 def abrir_github():
     webbrowser.open("https://github.com/RodPy/link_gen.git")
 
@@ -25,7 +25,7 @@ def subir_archivo():
         df = pd.read_csv(archivo)
 
         # Verificar si hay más de una columna
-        if df.shape[1] > 1:
+        if df.shape[1] == 1:
             messagebox.showerror("Error", "El archivo debe contener solo una columna con los números de celular.")
         else:
             df = df.rename(columns={df.columns[0]: 'celular'})
@@ -116,7 +116,7 @@ def generar_enlaces():
 # Crear la ventana
 root = tk.Tk()
 root.title("Generador de Enlaces")
-root.geometry("500x350")
+root.geometry("500x300")
 root.resizable(False, False)  # Bloquear el tamaño de la ventana
 
 # Mensaje
@@ -163,13 +163,27 @@ button_generar = tk.Button(root, text="Generar enlaces", command=generar_enlaces
 button_generar.pack(pady=10)
 
 # Cargar la imagen del logo de GitHub
-github_logo = Image.open("github_logo.png")  # Asegúrate de tener este archivo en el mismo directorio
-github_logo = github_logo.resize((40, 40), Image.Resampling.LANCZOS)  # Usar el nuevo método de resampling
+def resource_path(relative_path):
+    try:
+        # Si estamos dentro del ejecutable, PyInstaller crea un directorio temporal para los archivos
+        base_path = getattr(sys, '_MEIPASS', os.path.abspath('.'))
+    except Exception:
+        # Si no estamos en el ejecutable (en desarrollo)
+        base_path = os.path.abspath('.')
+    return os.path.join(base_path, relative_path)
+
+# Cargar la imagen del logo de GitHub
+image_path = resource_path('img/github_logo.png')
+
+# Cargar la imagen
+github_logo = Image.open(image_path)
+github_logo = github_logo.resize((40, 40), Image.Resampling.LANCZOS)
 github_logo_tk = ImageTk.PhotoImage(github_logo)
 
 # Crear el botón con el logo de GitHub
 button_github = tk.Button(root, image=github_logo_tk, command=abrir_github, relief="flat")
-button_github.place(x=460, y=310)  # Coloca el botón en la esquina inferior derecha
+button_github.place(x=420, y=250)
+# root.geometry("500x300")
 
 
 # Ejecutar la ventana

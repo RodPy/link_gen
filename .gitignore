@@ -1,0 +1,17 @@
+
+build/UI/Analysis-00.toc
+build/UI/base_library.zip
+build/UI/EXE-00.toc
+build/UI/localpycs/pyimod01_archive.pyc
+build/UI/localpycs/pyimod02_importers.pyc
+build/UI/localpycs/pyimod03_ctypes.pyc
+build/UI/localpycs/pyimod04_pywin32.pyc
+build/UI/localpycs/struct.pyc
+build/UI/PKG-00.toc
+build/UI/PYZ-00.pyz
+build/UI/PYZ-00.toc
+build/UI/UI.pkg
+build/UI/warn-UI.txt
+build/UI/xref-UI.html
+UI.spec
+.idea/vcs.xml
